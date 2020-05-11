@@ -87,6 +87,8 @@ ${AUTOSCALER_VERSION}
 <AUTOSCALING GROUP NAME>
 <AWS_REGION_NAME> 
 This specifies the minimum nodes (2), max nodes (8) and ASG Name.
+# add parameters for cluster-autoscaler
+- --aws-use-static-instance-list=true
 
 # Apply IAM Policy
 STACK_NAME=$(eksctl get nodegroup --cluster ${CLUSTER_NAME} --region=${AWS_REGION} -o json | jq -r '.[].StackName')
